@@ -6,7 +6,6 @@ public class telerikMain extends initDriver {
     public void verifyTableLoadedTest() {
         telerikMainAPage.verifyTableLoaded();
     }
-
     @Test(priority = 2)
     public void addRecordTest() {
         telerikMainAPage.verifyTableLoaded();
@@ -16,13 +15,20 @@ public class telerikMain extends initDriver {
     @Test(priority = 3)
     public void deleteRecordTest() {
         telerikMainAPage.verifyTableLoaded();
-        telerikMainAPage.deleteAddedRecord("abc", "15", "$100.00");
+        telerikMainAPage.deleteAddedRecord();
+        telerikMainAPage.verifyRecordNotShown("abc", "15", "$100.00");
     }
-
     @Test(priority = 4)
     public void dropDownTest() {
         telerikMainAPage.verifyTableLoaded();
         telerikMainAPage.clickOnDropDown20();
+    }
+
+    @Test(priority = 5)
+    public void addIncorrectRecordTest() {
+        telerikMainAPage.verifyTableLoaded();
+        telerikMainAPage.addRecord("abc", "abc", "abc");
+        telerikMainAPage.verifyRecordShown("abc", " ", " ");
     }
 
 }

@@ -48,7 +48,7 @@ public class common {
     }
 
     public void clickOnElement (WebElement element) {
-        fluentWait.until(ExpectedConditions.visibilityOf(element)).click();
+        fluentWait.until(ExpectedConditions.elementToBeClickable(element)).click();
 
     }
 
