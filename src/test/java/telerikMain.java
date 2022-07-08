@@ -2,17 +2,27 @@ import org.testng.annotations.Test;
 
 public class telerikMain extends initDriver {
 
-    @Test
-    public void verifyTableLoaded() {
+    @Test(priority = 1)
+    public void verifyTableLoadedTest() {
         telerikMainAPage.verifyTableLoaded();
     }
 
-    @Test
-    public void addRecord() {
+    @Test(priority = 2)
+    public void addRecordTest() {
         telerikMainAPage.verifyTableLoaded();
         telerikMainAPage.addRecord("abc", "15", "100.0");
         telerikMainAPage.verifyRecordShown("abc", "15", "$100.00");
+    }
+    @Test(priority = 3)
+    public void deleteRecordTest() {
+        telerikMainAPage.verifyTableLoaded();
+        telerikMainAPage.deleteAddedRecord("abc", "15", "$100.00");
+    }
 
+    @Test(priority = 4)
+    public void dropDownTest() {
+        telerikMainAPage.verifyTableLoaded();
+        telerikMainAPage.clickOnDropDown20();
     }
 
 }

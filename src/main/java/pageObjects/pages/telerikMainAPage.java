@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
 
@@ -56,7 +57,13 @@ public class telerikMainAPage extends common {
     @FindBy(xpath = "//button[@class='t-button rgActionButton rgCancel']")
     private WebElement cancelButton;
 
-    String xpathRow = "//tr[@id='ctl00_ContentPlaceholder1_RadGrid1_ctl00__";
+    @FindBy(xpath = "//div[@class='RadWindow RadWindow_Silk']//button[@class='rwOkBtn']")
+    private WebElement okButton;
+    @FindBy(xpath = "//button[@class='rcbActionButton']")
+    private WebElement pageSizeButton;
+
+    private String xpathRow = "//tr[@id='ctl00_ContentPlaceholder1_RadGrid1_ctl00__";
+    private String dropDownOptions = "//*[@id='ctl00_ContentPlaceholder1_RadGrid1_ctl00_ctl03_ctl01_PageSizeComboBox_DropDown']";
 
 
     public telerikMainAPage(WebDriver driver) {
@@ -93,6 +100,26 @@ public class telerikMainAPage extends common {
         Assert.assertTrue(driver.findElement(By.xpath(xpathRow+String.valueOf(getDeleteButtons().size()-1) +"']/td[3]")).getText().equals(name));
         Assert.assertTrue(driver.findElement(By.xpath(xpathRow+String.valueOf(getDeleteButtons().size()-1) +"']/td[4]")).getText().equals(units));
         Assert.assertTrue(driver.findElement(By.xpath(xpathRow+String.valueOf(getDeleteButtons().size()-1) +"']/td[5]")).getText().equals(price));
+    }
+
+    public void clickOnDropDown20 () {
+        scrollDown();
+        clickOnElement(pageSizeButton);
+        fluentWait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(dropDownOptions+"/div/ul/li[2]")))).click();
+        sleepFor(2500);
+        Assert.assertTrue(getDeleteButtons().size() == 20);
+    }
+
+    public void deleteAddedRecord (String name , String units , String price) {
+        scrollDown();
+        clickOnElement(getLastPageButton());
+        sleepFor(2500);
+        clickOnElement(getDeleteButtons().get(getDeleteButtons().size() - 1));
+        clickOnElement(getOkButton());
+        sleepFor(2500);
+        Assert.assertFalse(driver.findElement(By.xpath(xpathRow+String.valueOf(getDeleteButtons().size()-1) +"']/td[3]")).getText().equals(name));
+        Assert.assertFalse(driver.findElement(By.xpath(xpathRow+String.valueOf(getDeleteButtons().size()-1) +"']/td[4]")).getText().equals(units));
+        Assert.assertFalse(driver.findElement(By.xpath(xpathRow+String.valueOf(getDeleteButtons().size()-1) +"']/td[5]")).getText().equals(price));
     }
 
 
