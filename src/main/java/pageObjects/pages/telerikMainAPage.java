@@ -51,6 +51,24 @@ public class telerikMainAPage extends common {
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceholder1_RadGrid1_ctl00_ctl02_ctl03_TB_UnitPrice']")
     private WebElement priceInput;
 
+    @FindBy(xpath = "//input[@class='RadInputMgr RadInputMgr_Silk RadInput_Enabled_Silk']")
+    private WebElement editProductNameInput;
+
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceholder1_RadGrid1_ctl00_ctl19_TB_UnitsInStock']")
+    private WebElement editUnitsInStockInput;
+
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceholder1_RadGrid1_ctl00_ctl19_TB_UnitPrice']")
+    private WebElement editPriceInput;
+
+    @FindBy(xpath = "//input[@class='RadInputMgr RadInputMgr_Silk RadInput_Enabled_Silk rfdTextInput']")
+    private List<WebElement> recordInputFields;
+
+    @FindBy(xpath = "//input[@class='RadInputMgr RadInputMgr_Silk RadInput_Focused_Silk']")
+    private WebElement focusedInputField;
+
+    @FindBy(xpath = "//input[@class='RadInputMgr RadInputMgr_Silk RadInput_Enabled_Silk']")
+    private List<WebElement> nofocusedInputField;
+
     @FindBy(xpath = "//button[@class='t-button rgActionButton rgUpdate']")
     private WebElement updateButton;
 
@@ -93,6 +111,23 @@ public class telerikMainAPage extends common {
         clickOnElement(getUpdateButton());
     }
 
+    public void editLastRecord(String name, String units, String price) {
+        sleepFor(2500);
+        scrollDown();
+        clickOnElement(getLastPageButton());
+        sleepFor(2500);
+        clickOnElement(getEditButtons().get(getEditButtons().size()-1));
+        sleepFor(2500);
+        clickOnElement(getRecordInputFields().get(0));
+        clearAndInsertInputText(getFocusedInputField(),name);
+        clickOnElement(getRecordInputFields().get(0));
+        clearAndInsertInputText(getFocusedInputField(),units);
+        clickOnElement(getRecordInputFields().get(0));
+        clearAndInsertInputText(getFocusedInputField(),price);
+        clickOnElement(getUpdateButton());
+
+    }
+
     public void verifyRecordShown(String name, String units, String price) {
         sleepFor(2500);
         scrollDown();
@@ -102,6 +137,7 @@ public class telerikMainAPage extends common {
         Assert.assertTrue(driver.findElement(By.xpath(xpathRow + String.valueOf(getDeleteButtons().size() - 1) + "']/td[4]")).getText().equals(units));
         Assert.assertTrue(driver.findElement(By.xpath(xpathRow + String.valueOf(getDeleteButtons().size() - 1) + "']/td[5]")).getText().equals(price));
     }
+
     public void verifyRecordNotShown(String name, String units, String price) {
         sleepFor(2500);
         scrollDown();
@@ -112,7 +148,7 @@ public class telerikMainAPage extends common {
         Assert.assertFalse(driver.findElement(By.xpath(xpathRow + String.valueOf(getDeleteButtons().size() - 1) + "']/td[5]")).getText().equals(price));
     }
 
-    public void clickOnDropDown20() {
+    public void clickOnDropDown20AndVerify() {
         scrollDown();
         clickOnElement(pageSizeButton);
         fluentWait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(dropDownOptions + "/div/ul/li[2]")))).click();
@@ -126,10 +162,6 @@ public class telerikMainAPage extends common {
         sleepFor(2500);
         clickOnElement(getDeleteButtons().get(getDeleteButtons().size() - 1));
         clickOnElement(getOkButton());
-//        sleepFor(2500);
-//        Assert.assertFalse(driver.findElement(By.xpath(xpathRow + String.valueOf(getDeleteButtons().size() - 1) + "']/td[3]")).getText().equals(name));
-//        Assert.assertFalse(driver.findElement(By.xpath(xpathRow + String.valueOf(getDeleteButtons().size() - 1) + "']/td[4]")).getText().equals(units));
-//        Assert.assertFalse(driver.findElement(By.xpath(xpathRow + String.valueOf(getDeleteButtons().size() - 1) + "']/td[5]")).getText().equals(price));
     }
 
 

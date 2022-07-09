@@ -43,12 +43,18 @@ public class common {
         fluentWait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public void inputText(WebElement element , String text) {
+    public void inputText(WebElement element, String text) {
         fluentWait.until(ExpectedConditions.visibilityOf(element)).sendKeys(text);
     }
 
-    public void clickOnElement (WebElement element) {
+    public void clickOnElement(WebElement element) {
         fluentWait.until(ExpectedConditions.elementToBeClickable(element)).click();
+
+    }
+
+    public void clearAndInsertInputText(WebElement element, String text) {
+        fluentWait.until(ExpectedConditions.visibilityOf(element)).sendKeys(Keys.CONTROL, "a", Keys.DELETE);
+        fluentWait.until(ExpectedConditions.visibilityOf(element)).sendKeys(text);
 
     }
 
