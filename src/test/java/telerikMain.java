@@ -34,6 +34,8 @@ public class telerikMain extends initDriver {
     public void addIncorrectRecordTest() {
         telerikMainAPage.addRecord("abc", "abc", "abc");
         telerikMainAPage.verifyRecordShown("abc", " ", " ");
+        telerikMainAPage.deleteAddedRecord();
+
     }
 
 }
