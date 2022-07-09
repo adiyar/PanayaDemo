@@ -103,14 +103,14 @@ public class telerikMainAPage extends common {
         scrollDown();
         clickOnElement(getLastPageButton());
         sleepFor(2500);
-        clickOnElement(getEditButtons().get(getEditButtons().size()-1));
+        clickOnElement(getEditButtons().get(getEditButtons().size() - 1));
         sleepFor(2500);
         clickOnElement(getRecordInputFields().get(0));
-        clearAndInsertInputText(getFocusedInputField(),name);
+        clearAndInsertInputText(getFocusedInputField(), name);
         clickOnElement(getRecordInputFields().get(0));
-        clearAndInsertInputText(getFocusedInputField(),units);
+        clearAndInsertInputText(getFocusedInputField(), units);
         clickOnElement(getRecordInputFields().get(0));
-        clearAndInsertInputText(getFocusedInputField(),price);
+        clearAndInsertInputText(getFocusedInputField(), price);
         clickOnElement(getUpdateButton());
 
     }
@@ -149,6 +149,5 @@ public class telerikMainAPage extends common {
         clickOnElement(getOkButton());
         sleepFor(2500);
     }
-
 
 }
