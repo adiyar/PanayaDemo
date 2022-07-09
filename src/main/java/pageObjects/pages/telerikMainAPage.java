@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -37,9 +36,6 @@ public class telerikMainAPage extends common {
     @FindBy(xpath = "//button[@title='Refresh']")
     private WebElement refreshButton;
 
-    @FindBy(xpath = "//button[@id='onetrust-accept-btn-handler']")
-    private WebElement acceptCookies;
-
     @FindBy(xpath = "//*[@class='t-button rgActionButton rgEdit']")
     private List<WebElement> editButtons;
 
@@ -55,23 +51,11 @@ public class telerikMainAPage extends common {
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceholder1_RadGrid1_ctl00_ctl02_ctl03_TB_UnitPrice']")
     private WebElement priceInput;
 
-    @FindBy(xpath = "//input[@class='RadInputMgr RadInputMgr_Silk RadInput_Enabled_Silk']")
-    private WebElement editProductNameInput;
-
-    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceholder1_RadGrid1_ctl00_ctl19_TB_UnitsInStock']")
-    private WebElement editUnitsInStockInput;
-
-    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceholder1_RadGrid1_ctl00_ctl19_TB_UnitPrice']")
-    private WebElement editPriceInput;
-
     @FindBy(xpath = "//input[@class='RadInputMgr RadInputMgr_Silk RadInput_Enabled_Silk rfdTextInput']")
     private List<WebElement> recordInputFields;
 
     @FindBy(xpath = "//input[@class='RadInputMgr RadInputMgr_Silk RadInput_Focused_Silk']")
     private WebElement focusedInputField;
-
-    @FindBy(xpath = "//input[@class='RadInputMgr RadInputMgr_Silk RadInput_Enabled_Silk']")
-    private List<WebElement> nofocusedInputField;
 
     @FindBy(xpath = "//button[@class='t-button rgActionButton rgUpdate']")
     private WebElement updateButton;
@@ -83,9 +67,6 @@ public class telerikMainAPage extends common {
     private WebElement okButton;
     @FindBy(xpath = "//button[@class='rcbActionButton']")
     private WebElement pageSizeButton;
-
-    @FindBy(xpath = "//div[@class='kd-example-runner tabstrip-container example-code-container']")
-    private WebElement tabInfo;
 
     private String xpathRow = "//tr[@id='ctl00_ContentPlaceholder1_RadGrid1_ctl00__";
     private String dropDownOptions = "//*[@id='ctl00_ContentPlaceholder1_RadGrid1_ctl00_ctl03_ctl01_PageSizeComboBox_DropDown']";
