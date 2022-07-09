@@ -166,6 +166,7 @@ public class telerikMainAPage extends common {
         sleepFor(2500);
         clickOnElement(getDeleteButtons().get(getDeleteButtons().size() - 1));
         clickOnElement(getOkButton());
+        sleepFor(2500);
     }
 
 
