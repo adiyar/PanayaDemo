@@ -115,7 +115,7 @@ public class telerikMainAPage extends common {
 
     }
 
-    public void verifyRecordShown(String name, String units, String price) {
+    public void verifyLastRecordShown(String name, String units, String price) {
         scrollDown();
         clickOnElement(getLastPageButton());
         sleepFor(2500);
@@ -124,7 +124,7 @@ public class telerikMainAPage extends common {
         Assert.assertTrue(driver.findElement(By.xpath(xpathRow + String.valueOf(getDeleteButtons().size() - 1) + "']/td[5]")).getText().equals(price));
     }
 
-    public void verifyRecordNotShown(String name, String units, String price) {
+    public void verifyLastRecordNotShown(String name, String units, String price) {
         scrollDown();
         clickOnElement(getLastPageButton());
         sleepFor(2500);
@@ -141,7 +141,7 @@ public class telerikMainAPage extends common {
         Assert.assertTrue(getDeleteButtons().size() == 20);
     }
 
-    public void deleteAddedRecord() {
+    public void deleteLastAddedRecord() {
         scrollDown();
         clickOnElement(getLastPageButton());
         sleepFor(2500);
