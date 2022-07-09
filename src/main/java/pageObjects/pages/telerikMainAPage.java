@@ -133,7 +133,7 @@ public class telerikMainAPage extends common {
         Assert.assertFalse(driver.findElement(By.xpath(xpathRow + String.valueOf(getDeleteButtons().size() - 1) + "']/td[5]")).getText().equals(price));
     }
 
-    public void clickOnDropDown20AndVerify() {
+    public void changePageSizeTo20AndVerify() {
         scrollDown();
         clickOnElement(pageSizeButton);
         fluentWait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(dropDownOptions + "/div/ul/li[2]")))).click();

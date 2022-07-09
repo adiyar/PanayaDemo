@@ -26,8 +26,8 @@ public class telerikMain extends initDriver {
     }
 
     @Test(priority = 5)
-    public void dropDownTest() {
-        telerikMainAPage.clickOnDropDown20AndVerify();
+    public void changePageSizeTest() {
+        telerikMainAPage.changePageSizeTo20AndVerify();
     }
 
     @Test(priority = 6)
