@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -35,6 +36,9 @@ public class telerikMainAPage extends common {
 
     @FindBy(xpath = "//button[@title='Refresh']")
     private WebElement refreshButton;
+
+    @FindBy(xpath = "//button[@id='onetrust-accept-btn-handler']")
+    private WebElement acceptCookies;
 
     @FindBy(xpath = "//*[@class='t-button rgActionButton rgEdit']")
     private List<WebElement> editButtons;
@@ -80,6 +84,9 @@ public class telerikMainAPage extends common {
     @FindBy(xpath = "//button[@class='rcbActionButton']")
     private WebElement pageSizeButton;
 
+    @FindBy(xpath = "//div[@class='kd-example-runner tabstrip-container example-code-container']")
+    private WebElement tabInfo;
+
     private String xpathRow = "//tr[@id='ctl00_ContentPlaceholder1_RadGrid1_ctl00__";
     private String dropDownOptions = "//*[@id='ctl00_ContentPlaceholder1_RadGrid1_ctl00_ctl03_ctl01_PageSizeComboBox_DropDown']";
 
@@ -112,7 +119,6 @@ public class telerikMainAPage extends common {
     }
 
     public void editLastRecord(String name, String units, String price) {
-        sleepFor(2500);
         scrollDown();
         clickOnElement(getLastPageButton());
         sleepFor(2500);
@@ -129,7 +135,6 @@ public class telerikMainAPage extends common {
     }
 
     public void verifyRecordShown(String name, String units, String price) {
-        sleepFor(2500);
         scrollDown();
         clickOnElement(getLastPageButton());
         sleepFor(2500);
@@ -139,7 +144,6 @@ public class telerikMainAPage extends common {
     }
 
     public void verifyRecordNotShown(String name, String units, String price) {
-        sleepFor(2500);
         scrollDown();
         clickOnElement(getLastPageButton());
         sleepFor(2500);
